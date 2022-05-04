@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vastaanotetut jaardit</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+  	<link type="text/css" rel="stylesheet" href="css/tablesort.css" th:href="@{css/tablesort.css}" />
+  	
+</head>
+<body>
+
+
+		<h1>Vastaanotetut jaardit</h1>
+    <table class="table table-sortable">
+    <thead>
+		<tr>
+		    <th>Etunimi</th>
+		    <th>Sukuinimi</th>
+		    <th class="numeric-sort">Jaardit</th>
+		    <th>Kategoria</th>
+		</tr>  
+		</thead>
+		<tbody>
+    	<tr th:each = "pelaaja : ${pelaajat}">
+   		<td th:text="${pelaaja.etunimi}"></td>
+   		<td th:text="${pelaaja.sukunimi}"></td>
+   		<td th:text="${pelaaja.jaardit}"></td>
+  		<td th:text="${pelaaja?.category.name}"></td> 
+ 	<td><a th:href="@{/delete/{id}(id=${pelaaja.id})}" class="btn btn-xs btn-danger">Delete</a> </td>   		
+ 			 <td><a th:href="@{/edit/{id}(id=${pelaaja.id})}" class="btn btn-primary">Edit</a></td>
+            
+     	</tr>
+     	</tbody>
+     </table>   	
+     
+     
+   
+     
+	 <a href="/add" class="btn btn-success">Lisää pelaaja</a>    	     
+	 	<div class="col-md-4" style="padding:20px 0">
+	<a href="/pelaajalista" class="btn btn-success">Etusivulle</a>    	     
+	 	<div class="col-md-4" style="padding:20px 0">
+</div>
+<script src="./js/sorttable.js"></script>
+</body>
+</html>

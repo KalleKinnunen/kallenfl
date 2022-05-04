@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Lisää pelaaja</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1>Lisää pelaaja</h1>
+	<div>
+		<form th:object="${pelaaja}" th:action="@{save}" action="#" method="post">
+			<label for="etunimi">Etunimi</label> <input type="text" id="etunimi"
+			th:field="*{etunimi}" />
+			
+				 <label for="sukunimi">Sukunimi</label> <input
+				type="text" id="sukunimi" th:field="*{sukunimi}" />
+				
+				
+				 <label for="jaardit">Jaardit</label>
+			<input type="text" id="jaardit" th:field="*{jaardit}" /> 
+			
+			
+				 <label for="catlist">Category</label> <select
+				id="catlist" th:field="*{category}" class="form-control">
+				<option th:each="category: ${categories}"
+					th:value="${category.categoryid}" th:text="${category.name}"></option>
+			</select> <input type="submit" value="Save"></input>
+
+		</form>
+
+
+	</div>
+</body>
+</html>

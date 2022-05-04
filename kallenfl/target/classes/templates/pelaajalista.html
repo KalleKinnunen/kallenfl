@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pelaajalista</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+  	<link type="text/css" rel="stylesheet" href="css/tablesort.css" th:href="@{css/tablesort.css}" />
+  	
+</head>
+<body>
+  <div class="col-md-4">
+		<h3 th:inline="text">Tervetuloa NFL- tilastopalveluun, [[${#httpServletRequest.remoteUser}]]!</h3><br>
+		<h3 th:inline="text">Täällä voit itse pitää kirjaa juostuista, vastaanotetuista ja heitetyistä jaardeista!</h3><br>
+	</div>
+
+    <table class="table table-sortable">
+    <thead>
+   <a href="/vastaanotetut" class="btn btn-success">Vastaanotetut jaardit</a>    	     
+	 	<div class="col-md-4" style="padding:20px 0">
+ <a href="/juostu" class="btn btn-success">Juostut jaardit</a>    	     
+	 	<div class="col-md-4" style="padding:20px 0">
+ <a href="/heitetty" class="btn btn-success">Heitetyt jaardit</a>    	     
+	 	<div class="col-md-4" style="padding:20px 0">
+  
+		</thead>
+		
+     
+     
+   
+     
+	
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+		</form>
+</div>
+<script src="./js/sorttable.js"></script>
+</body>
+</html>
